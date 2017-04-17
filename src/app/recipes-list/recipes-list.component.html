@@ -1,3 +1,30 @@
-<p>
-  recipes-list works!
-</p>
+<!-- <div>
+  {_renderRecipes(this.props.recipes)}
+  <div>
+    <Card header={<CardTitle reveal image={item.image} waves="light" />}
+          title={item.title}
+          reveal={
+            <div>
+              <Table>
+                <TableHeader>
+                  <TableHeaderColumn>Visual</TableHeaderColumn>
+                  <TableHeaderColumn>Name</TableHeaderColumn>
+                  <TableHeaderColumn>Description</TableHeaderColumn>
+                </TableHeader>
+                <TableBody>
+                  {_renderRecipeExtendedIngredients(item.extendedIngredients)}
+                  <TableRow>
+                    <TableRowColumn><img src={ingr.image} alt="" /></TableRowColumn>
+                    <TableRowColumn>{ingr.name}</TableRowColumn>
+                    <TableRowColumn>{ingr.originalString}</TableRowColumn>
+                  </TableRow>
+                </TableBody>
+              </Table>
+              <p dangerouslySetInnerHTML={{ __html: item.instructions}} />
+            </div>
+            }>
+             <p>Ready to Eat in {item.readyInMinutes} Minutes</p>
+             <p>Yields {item.servings} Servings</p>
+    </Card>
+  </div>
+</div> -->

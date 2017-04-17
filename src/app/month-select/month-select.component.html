@@ -1,3 +1,12 @@
+<form onSubmit={this.handleSubmit}>
+  <div className="dropdownMonth">
+    <Dropdown placeholder='Select A Month' fluid selection options={months} onChange={(event, result) => { const {value} = result; this.props.setMonth(value) } } />
+  </div>
+  <div className="SearchButton">
+    <Button color='blue'>Submit!</Button>
+  </div>
+</form>
+
 <div>
   
 </div>

@@ -1,3 +1,8 @@
-<p>
-  ingredients-list works!
-</p>
+<Row>
+  <Col s={12}>
+    {_renderIngredients(this.props.ingredients)}
+    <Chip className="ingredientChip" *ngFor="let ingredient of ingredients">
+      {ingredient.food_name}
+    </Chip>
+  </Col>
+</Row>
