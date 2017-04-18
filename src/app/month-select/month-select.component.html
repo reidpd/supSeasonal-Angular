@@ -1,12 +1,28 @@
-<form onSubmit={this.handleSubmit}>
+<!-- <form onSubmit={this.handleSubmit}>
   <div className="dropdownMonth">
     <Dropdown placeholder='Select A Month' fluid selection options={months} onChange={(event, result) => { const {value} = result; this.props.setMonth(value) } } />
   </div>
   <div className="SearchButton">
     <Button color='blue'>Submit!</Button>
   </div>
-</form>
+</form> -->
 
-<div>
-  
-</div>
+<!-- <div class="row">
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select A Month</button>
+      <div class="dropdown-menu" aria-labelledby="dropdownBasic1" *ngFor="let month of months">
+        <button class="dropdown-item">{{month}}</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<form #f="ngForm"
+      (ngSubmit)="onSubmit(f.value)">
+      <label for="monthSelector">Select A Month</label>
+      <select id="monthSelector" class="" name="queryMonth" ngModel>Select A Month
+        <option *ngFor="let month of months">{{month}}</option>
+      </select>
+      <button type="submit" class="ui button">Submit</button>
+</form>

@@ -1,8 +1,16 @@
-<Row>
+<!-- <Row>
   <Col s={12}>
     {_renderIngredients(this.props.ingredients)}
     <Chip className="ingredientChip" *ngFor="let ingredient of ingredients">
       {ingredient.food_name}
     </Chip>
   </Col>
-</Row>
+</Row> -->
+
+<div>
+  <p>Ingredients will live here</p>
+  <ul>
+    <li *ngFor="let ingredient of ingredients">{{ingredient}}</li>
+  </ul>
+  <button type="submit" (click)="updateList(getIngredients())">GIMME THEM INGREDIENTS</button>
+</div>

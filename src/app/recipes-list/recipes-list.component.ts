@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent implements OnInit {
-  recipes: /* insert API results here */
+  // recipes: []; /* insert API results here */
   // extendedIngredients: recipes[i].extendedIngredients
 
   constructor() { }

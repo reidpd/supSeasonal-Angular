@@ -1,7 +1,7 @@
 //Angular-specific modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 //Components
 import { AppComponent } from './app.component';
@@ -9,22 +9,27 @@ import { IngredientsListComponent } from './ingredients-list/ingredients-list.co
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { MonthSelectComponent } from './month-select/month-select.component';
 //CSS-Framework-Related
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { IngredientsItemComponent } from './ingredients-item/ingredients-item.component';
+//Providers
+import { IngredientSearchService } from './services/ingredientSearch';
 
 @NgModule({
   declarations: [
     AppComponent,
     IngredientsListComponent,
     RecipesListComponent,
-    MonthSelectComponent
+    MonthSelectComponent,
+    IngredientsItemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [IngredientSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
