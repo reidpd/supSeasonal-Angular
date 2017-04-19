@@ -2,6 +2,9 @@
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
+  "extends": [
+    "tslint-eslint-rules"
+  ],
   "rules": {
     "callable-types": true,
     "class-name": true,
@@ -40,6 +43,7 @@
       "timeEnd",
       "trace"
     ],
+    "no-constant-condition": true,
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-variable": true,

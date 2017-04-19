@@ -8,9 +8,12 @@
 </Row> -->
 
 <div>
-  <p>Ingredients will live here</p>
+  <h3>SupSeasonal Angular Edition!</h3>
+  <a [routerLink]="['/month-select']" class="btn btn-link">Month Selector</a>
+  <a [routerLink]="['/recipes']" class="btn btn-link">Recipes Results</a>
+  <p>Ingredients live here</p>
+  <button (click)="renderNewIngredients()">Show me the freshest ingredients for the current month selected!</button>
   <ul>
     <li *ngFor="let ingredient of ingredients">{{ingredient.food_name}}</li>
   </ul>
-  <button (click)="renderNewIngredients()">GIMME THEM INGREDIENTS</button>
 </div>
