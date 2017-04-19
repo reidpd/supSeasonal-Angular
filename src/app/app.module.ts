@@ -18,12 +18,12 @@ import { IngredientSearchService } from './services/ingredientSearch';
 import { Injectables } from './services/ingredientsSearch.injectables';
 
 const appRoutes: Routes = [
-    { path: 'month-select', component: MonthSelectComponent },
+    { path: '', component: MonthSelectComponent },
     { path: 'ingredients', component: IngredientsListComponent },
     { path: 'recipes', component: RecipesListComponent },
 
     // otherwise redirect to home
-    { path: '**', redirectTo: 'month-select' }
+    { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
