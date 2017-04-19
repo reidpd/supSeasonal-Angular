@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { IngredientResult } from '../ingredient-result.model';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -14,10 +15,14 @@ export class IngredientSearchService {
   currentSelectedMonth: any;
   ingredients: Array<IngredientResult>;
 
-  constructor (private http: Http) { }
+  static instance: IngredientSearchService;
+
+  constructor (private http: Http) {
+    return IngredientSearchService.instance = IngredientSearchService.instance || this;
+  }
 
   setMonth(queryMonth) {
-    this.currentSelectedMonth = queryMonth;
+    this.currentSelectedMonth = queryMonth.month;
   }
 
   getMonth() {
@@ -25,6 +30,7 @@ export class IngredientSearchService {
   }
 
   setIngredients(results) {
+    console.log(this)
     this.ingredients = results;
   }
 
@@ -32,24 +38,35 @@ export class IngredientSearchService {
     return this.ingredients;
   }
 
-  search(queryMonth: string): Promise<IngredientResult[]> {
-    const queryURL = `http://supseasonal.herokuapp.com/api/months/${queryMonth}`;
+  search(): Observable<IngredientResult[]> {
+    console.log(this.currentSelectedMonth);
+    const queryURL = `http://supseasonal.herokuapp.com/api/months/${this.currentSelectedMonth}`;
 
     return this.http.get(queryURL)
-    .toPromise()
-    .then(res => {
-      console.log(res.json());
-      const ingredients = res.json().map(item => { if (item.food_name!=='') { return item.food_name } });
-      const ingredientResults = res.json().map((item) => {
+    // .toPromise()
+    // .then(res => {
+    .map((response: Response) => {
+
+      return (<any>response.json()).map(item => {
         return new IngredientResult({
           food_name: item.food_name
         });
       });
-      console.log(ingredients);
-      console.log(ingredientResults);
-      this.setIngredients(ingredientResults);
-      return ingredientResults;
     });
+      // // console.log(res.json());
+      // const ingredients = res.json().map(item => { if (item.food_name!=='') { return item.food_name } });
+      // const ingredientResults = res.json().map((item) => {
+      //   return new IngredientResult({
+      //     food_name: item.food_name
+      //   });
+      // });
+      // console.log(ingredients);
+      // console.log(ingredientResults);
+      // this.setIngredients(ingredientResults);
+      // console.log(this.ingredients);
+      // console.log(this.ingredients);
+      // return ingredientResults;
+    // });
     // .map((response: Response) => {
     //   return (<any>response.json()).items.map(item => {
     //       // console.log("raw item", item); // uncomment if you want to debug

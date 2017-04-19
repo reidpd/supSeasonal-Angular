@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IngredientsItemComponent } from './ingredients-item/ingredients-item.component';
 //Providers
 import { IngredientSearchService } from './services/ingredientSearch';
+// import { Injectables } from './services/ingredientsSearch.injectables';
 
 @NgModule({
   declarations: [

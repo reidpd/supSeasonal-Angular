@@ -10,7 +10,7 @@
 <div>
   <p>Ingredients will live here</p>
   <ul>
-    <li *ngFor="let ingredient of ingredients">{{ingredient}}</li>
+    <li *ngFor="let ingredient of ingredients">{{ingredient.food_name}}</li>
   </ul>
-  <button type="submit" (click)="updateList(getIngredients())">GIMME THEM INGREDIENTS</button>
+  <button (click)="renderNewIngredients()">GIMME THEM INGREDIENTS</button>
 </div>
