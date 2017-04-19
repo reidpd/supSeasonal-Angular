@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IngredientSearchService } from '../services/ingredientSearch';
-import { IngredientsListComponent } from '../ingredients-list/ingredients-list.component';
+// import { IngredientsListComponent } from '../ingredients-list/ingredients-list.component';
 import { IngredientResult } from '../ingredient-result.model';
 
 @Component({

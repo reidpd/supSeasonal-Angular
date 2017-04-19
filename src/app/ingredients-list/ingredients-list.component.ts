@@ -10,7 +10,6 @@ import { IngredientSearchService } from '../services/ingredientSearch';
 })
 export class IngredientsListComponent implements OnInit {
   ingredients: IngredientResult[];
-  // currentSelectedMonth: string = 'idk';
   loading: boolean;
 
   constructor(private ingredientSearch: IngredientSearchService) { }
